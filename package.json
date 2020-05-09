@@ -1,0 +1,24 @@
+{
+  "name": "yu-vue-mobile",
+  "version": "1.1.9",
+  "description": "vue移动端组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yu-front": "^1.6.4",
+    "yu-ani": "^1.0.3",
+    "yu-util": "^1.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18022682515/yu-vue-mobile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/18022682515/yu-vue-mobile/issues"
+  },
+  "homepage": "https://github.com/18022682515/yu-vue-mobile#readme"
+}
