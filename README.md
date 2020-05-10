@@ -17,29 +17,27 @@ Vue.use(new Plugin());              //引入
 ### 路由子页面
 <!-- 带返回键 -->
 ```html
-<yu-router to="/a" name="left">a</yu-router>
-<!-- 或 -->
-<yu-router :to="{ path:'/a',query:{ user:'xxx' } }" name="left">a</yu-router>
-<!-- 或 -->
-<yu-router :to="{ name:'a',params:{ user:'xxx' } }" name="left">a</yu-router>
+<yu-router-container v-model="show" name="left">
+	<yu-router v-model="show" to="/a">a</yu-router>
+	<yu-router v-model="show" to="/b">b</yu-router>
+</yu-router-container>
 
-<!-- 不能用于首页路由，如：<yu-router to="/">home</yu-router>这是错误的 -->
+show:true|false,    //路由子页面是否显示
 
-to:'/a',   //router-link的to属性
 name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //路由页面进入和离开的过渡动画
+
+to:'/a'|{ path:'/a',query:{} }|{ name:'a',params:{} },   //router-link的to属性
 ```
 
 
 ### 子页面
 <!-- 带返回键 -->
 ```html
-<yu-subpage name="left" v-model="show" :toggle="toggle" @load="load" >
+<yu-page name="left" v-model="show">
 		<p v-for="i in 88">{{i}}</p>
-</yu-subpage>
+</yu-page>
 name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
-shou:true|false,   //本组件是否显示
-toggle:true|false, //切换新的组件(非缓存的组件)
-@load        //本组件加载完成触发
+show:true|false,   //本组件是否显示
 ```
 
 ### 下拉刷新、上拉加载

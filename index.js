@@ -8,8 +8,8 @@ class Plugin{
 			'tabs/tabX',
 			'tabs/tabY',
 			'layout/transition',
+			'layout/routerContainer'，
 			'layout/router',
-			'layout/subpage',
 			'layout/page',
 			'layout/pull',
 			'layout/touchTitle',

@@ -1,25 +1,25 @@
 <template>
-	<div class="page">
-		<i class="iconfont" @touchstart="$emit('input',!value)">&#xe637;</i>
-		<slot></slot>
-	</div>
+	<yu-transition :name="name">
+		<div class="page" v-if="value">
+			<i class="iconfont" @touchstart="$emit('input',!value)">&#xe637;</i>
+			<slot></slot>
+		</div>
+	</yu-transition>
 </template>
 
 <script>
 export default {
 	name:'page',
 	props:{
+		name:{
+			type:String,
+			default:'left'
+		},
 		value:{
 			type:Boolean,
 			default:false
 		}
-	},
-	// mounted(){
-	// 	this.$emit('load');
-	// },
-	activated(){
-		this.$emit('load');
-	},
+	}
 }
 </script>
 
