@@ -14,19 +14,11 @@ import Plugin from 'yu-vue-mobile';
 Vue.use(new Plugin());              //引入
 ```
 
-### 路由子页面
-<!-- 带返回键 -->
+### 路由渲染元素：router-view
 ```html
-<yu-router-container v-model="show" name="left">
-	<yu-router v-model="show" to="/a">a</yu-router>
-	<yu-router v-model="show" to="/b">b</yu-router>
-</yu-router-container>
+<yu-view name="left"></yu-view>   //加了过渡动画的router-view
 
-show:true|false,    //路由子页面是否显示
-
-name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //路由页面进入和离开的过渡动画
-
-to:'/a'|{ path:'/a',query:{} }|{ name:'a',params:{} },   //router-link的to属性
+name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
 ```
 
 
