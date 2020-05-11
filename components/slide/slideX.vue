@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ani, setCss, getOffset, inertia } from 'yu-ani'
+import { ani } from 'yu-ani'
 export default {
   name: 'slideX',
   props: {
