@@ -8,7 +8,7 @@ class Plugin{
 			'tabs/tabX',
 			'tabs/tabY',
 			'layout/transition',
-			'layout/routerContainer'，
+			'layout/routerContainer',
 			'layout/router',
 			'layout/page',
 			'layout/pull',

@@ -1,6 +1,6 @@
 <template>
-	<router-link class="router" :to="to">
-	    <i @mousedown="$emit('input',!value)"><slot></slot></i>
+	<router-link class="router" :to="to" @click.native="$emit('input',!value)">
+	  <slot></slot>
 	</router-link>
 </template>
 
