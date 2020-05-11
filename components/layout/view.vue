@@ -1,7 +1,7 @@
 <template>
-	<yu-transition :name="name">
+	<yu-transition :name="transition">
 		<keep-alive>
-			<router-view class="view"></router-view>
+			<router-view class="view" :name="name"></router-view>
 		</keep-alive>
 	</yu-transition>
 </template>
@@ -11,6 +11,10 @@ export default {
 	name:'yuView',
 	props:{
 		name:{
+			type:String,
+			default:'default'
+		},
+		transition:{
 			type:String,
 			default:'left'
 		}

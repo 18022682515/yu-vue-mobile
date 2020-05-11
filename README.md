@@ -16,9 +16,13 @@ Vue.use(new Plugin());              //引入
 
 ### 路由渲染元素：router-view
 ```html
-<yu-view name="left"></yu-view>   //加了过渡动画的router-view
+<yu-view transition="left"></yu-view>   <!-- 加了过渡动画的router-view -->
 
-name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
+transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
+
+<!-- 如果是命名视图 -->
+<yu-view transition="left" name="a"></yu-view>
+name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
 ```
 
 
