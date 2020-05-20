@@ -14,6 +14,14 @@ import Plugin from 'yu-vue-mobile';
 Vue.use(new Plugin());              //引入
 ```
 
+### 图片懒加载：图片顶部出现在可视区域时才开始加载
+```javascript
+<img v-lazy="src">
+
+src:require('./xxx.jpg')
+```
+
+
 ### 路由渲染元素：router-view
 ```html
 <yu-view transition="left"></yu-view>   <!-- 加了过渡动画的router-view -->

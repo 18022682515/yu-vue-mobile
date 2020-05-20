@@ -1,7 +1,8 @@
 import './index.css';
+import imageLazyLoad from './lib/imageLazyLoad.js'
 
 class Plugin{
-	constructor(){
+	constructor() {
 		this.componentNames = [
 			'slide/slideX',
 			'slide/slideY',
@@ -21,20 +22,22 @@ class Plugin{
 		];
 	}
 	
-	setComponent(Vue){
-		this.componentNames.forEach( name=>{
-		    let arr = name.split('/');
-		    let filename = arr[arr.length-1];
-		    let component = 'yu'+filename.replace(filename[0],filename[0].toLocaleUpperCase());
-			
-			Vue.component(component,()=>import('./components/'+name+'.vue'));
-		} );
-	}
-	
 	install(Vue,options){
+		this.imageLazyLoad(Vue);
 		this.setComponent(Vue);
 	}
-	
 }
+
+Plugin.prototype.setComponent(Vue){
+	this.componentNames.forEach( name=>{
+			let arr = name.split('/');
+			let filename = arr[arr.length-1];
+			let component = 'yu'+filename.replace(filename[0],filename[0].toLocaleUpperCase());
+		
+		Vue.component(component,()=>import('./components/'+name+'.vue'));
+	} );
+}
+
+Plugin.prototype.imageLazyLoad = imageLazyLoad;
 
 export default Plugin;
