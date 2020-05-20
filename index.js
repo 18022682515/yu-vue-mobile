@@ -1,3 +1,4 @@
+
 import './index.css';
 import imageLazyLoad from './lib/imageLazyLoad.js'
 
@@ -28,7 +29,7 @@ class Plugin{
 	}
 }
 
-Plugin.prototype.setComponent(Vue){
+Plugin.prototype.setComponent = function(Vue){
 	this.componentNames.forEach( name=>{
 			let arr = name.split('/');
 			let filename = arr[arr.length-1];
