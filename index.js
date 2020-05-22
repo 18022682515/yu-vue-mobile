@@ -24,7 +24,7 @@ class Plugin{
 	}
 	
 	install(Vue,options){
-		this.imageLazyLoad(Vue);
+		this.imageLazyLoad(Vue,options);
 		this.setComponent(Vue);
 	}
 }

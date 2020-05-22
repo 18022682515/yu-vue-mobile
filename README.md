@@ -14,11 +14,17 @@ import Plugin from 'yu-vue-mobile';
 Vue.use(new Plugin());              //引入
 ```
 
-### 图片懒加载：图片顶部出现在可视区域时才开始加载，兼容ie9
+### 图片懒加载：img元素出现在可视区域时才开始加载，兼容ie9
 ```javascript
 <img v-lazy="src">
 
 src:require('./xxx.jpg')
+/* 
+如果浏览器不支持IntersectionObserver，则默认启用window的scroll事件；
+如果你的根滚动元素不是window,而是id为'#xxx'的元素；
+可以在引入本插件时，提供你的根滚动元素id,该元素也可以是vue组件中的元素。
+如：Vue.use(new Plugin(),{ root:'#xxx' }) 
+*/
 ```
 
 
