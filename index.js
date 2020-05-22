@@ -11,6 +11,7 @@ class Plugin{
 			'tabs/tabY',
 			'layout/transition',
 			'layout/view',
+			'layout/routePage',
 			'layout/page',
 			'layout/pull',
 			'layout/touchTitle',

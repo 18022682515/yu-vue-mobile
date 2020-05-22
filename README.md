@@ -27,8 +27,17 @@ src:require('./xxx.jpg')
 */
 ```
 
+### vue的过渡动画
+```html
+<yu-transition name="left">
+	<div v-if="show"></div>
+</yu-transition>
 
-### 路由渲染元素：router-view
+name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
+show:true|false  //控制div是否显示
+```
+
+### 路由页面渲染(绝对定位占满父元素)：router-view
 ```html
 <yu-view transition="left"></yu-view>   <!-- 加了过渡动画的router-view -->
 
@@ -39,8 +48,14 @@ transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'to
 name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
 ```
 
+### 路由组件的容器，带返回按钮
+```html
+<yu-route-page>
+	<!-- 路由页面内容 -->
+</yu-route-page>
+```
 
-### 子页面
+### 滑出页(全屏)，和路由组件的容器类似，不用vue-router时使用
 <!-- 带返回键 -->
 ```html
 <yu-page name="left" v-model="show">
@@ -85,7 +100,7 @@ downFn(child){
 show:true  //本组件是否显示
 ```
 
-### 页面导航选项
+### 导航选项
 ```html
 <yu-touch-title :titles="titles" v-model="index"></yu-touch-title>
 
@@ -136,16 +151,6 @@ index:0,  //当前显示页面索引(.page0)
 titles:['标签名0','标签名1','标签名2'],
 default:0,  //默认选中第一项：'标签名0'
 height:"100px"||"auto"  //标签内容的高度100px,默认是"auto"
-```
-
-### vue的过渡动画
-```html
-<yu-transition name="left">
-	<div v-if="show"></div>
-</yu-transition>
-
-name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
-show:true|false  //控制div是否显示
 ```
 
 ### 轮播图
