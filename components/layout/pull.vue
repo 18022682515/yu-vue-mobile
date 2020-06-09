@@ -7,7 +7,7 @@
 			<i class="iconfont load" v-show="load===true">&#xe69a;</i>
 			<span>{{downText}}</span>
 		</div>
-		<div class="pull-box-content" @scroll="scroll">
+		<div ref="content" class="pull-box-content" @scroll="scroll">
 			<slot></slot>
 		</div>
 	</div>
@@ -47,8 +47,8 @@ export default {
 	methods:{
 		scroll(e){
 			let ele = e.target;
-			this.scrollTop = ele.scrollTop;
-			let scrollHeihgt = ele.scrollHeight;
+			this.scrollTop = ele.scrollTop || 0;
+			let scrollHeihgt = ele.scrollHeight || 0;
 			let offsetHeihgt = ele.offsetHeight;
 			if(this.scrollTop+offsetHeihgt>=scrollHeihgt-10){
 				this.$emit('pull-up');
@@ -84,6 +84,9 @@ export default {
 			this.y = my;
 			this.rub *= 0.98;
 		},
+	},
+	mounted(){
+		this.scroll({ target:this.$refs.content });
 	}
 }
 </script>

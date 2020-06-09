@@ -15,16 +15,45 @@ Vue.use(new Plugin());              //引入
 ```
 
 ### 图片懒加载：img元素出现在可视区域时才开始加载，兼容ie9
-```javascript
+```html
 <img v-lazy="src">
 
 src:require('./xxx.jpg')
 /* 
 如果浏览器不支持IntersectionObserver，则默认启用window的scroll事件；
 如果你的根滚动元素不是window,而是id为'#xxx'的元素；
-可以在引入本插件时，提供你的根滚动元素id,该元素也可以是vue组件中的元素。
-如：Vue.use(new Plugin(),{ root:'#xxx' }) 
+可以在引入本插件时，提供你的根滚动元素id。
+该元素也可以是vue组件中的元素，不用担心元素是否已在浏览器渲染的问题。
+提供根滚动元素id，举例：Vue.use(new Plugin(),{ root:'#xxx' }) 
 */
+```
+
+### 表单弹框
+```html
+<yu-form 
+	v-model="show" 
+	title="用户注册" 
+	:img="require('public/1.jpg')" 
+	:labels="['用户','密码','确认密码','手机','邮箱','验证码']" 
+	@submit="fn">
+</yu-form>
+
+show:true|false,  //控制该弹框是否显示
+title:'',   //表单标题
+img:'',     //验证码图片的src
+labels:[],  //有哪些input输入框
+
+@submit:function(arr){},   //点击表单的提交按钮时触发本事件
+<!-- 事件回调函数的参数arr说明： -->
+<!-- 
+[ 
+	{ allow:true, text:'用户', type:'username', value:'' }, 
+	{ allow:true, text:'密码', type:'password', value:'' },
+	……
+] 
+-->
+<!-- allow:false,则对应的input的border变红 -->
+<!-- value:'',是用户在input输入框的输入内容 -->
 ```
 
 ### vue的过渡动画
@@ -55,7 +84,7 @@ name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
 </yu-route-page>
 ```
 
-### 滑出页(全屏)，和路由组件的容器类似，不用vue-router时使用
+### 滑出页(全屏)，不用vue-router时使用
 <!-- 带返回键 -->
 ```html
 <yu-page name="left" v-model="show">

@@ -9,6 +9,7 @@ class Plugin{
 			'slide/slideY',
 			'tabs/tabX',
 			'tabs/tabY',
+			'dialog/form',
 			'layout/transition',
 			'layout/view',
 			'layout/routePage',
