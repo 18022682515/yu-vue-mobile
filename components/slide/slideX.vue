@@ -67,7 +67,7 @@ export default {
 			  duration: ms,
 			  initial: { translateX: this.translateX },
 			  target: { translateX: -this.imgWidth * n },
-			  onUpdate (current) {
+			  update (current) {
 			    _this.translateX = current.translateX
 			  },
         complete (current) {

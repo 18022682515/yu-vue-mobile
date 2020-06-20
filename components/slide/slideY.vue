@@ -72,7 +72,7 @@ export default {
 			  duration: ms,
 			  initial: { translateY: this.translateY },
 			  target: { translateY: -this.imgHeight * n },
-			  onUpdate (current) {
+			  update (current) {
 			    _this.translateY = current.translateY
 			  },
         complete (current) {
