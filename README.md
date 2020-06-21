@@ -66,6 +66,13 @@ name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bott
 show:true|false  //控制div是否显示
 ```
 
+### 遮罩层(透明黑色)
+```html
+<yu-shade v-model="show"></yu-shade>
+
+show:true|false
+```
+
 ### 路由页面渲染(绝对定位占满父元素)：router-view
 ```html
 <yu-view transition="left"></yu-view>   <!-- 加了过渡动画的router-view -->

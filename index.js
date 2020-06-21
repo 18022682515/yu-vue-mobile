@@ -11,6 +11,7 @@ class Plugin{
 			'tabs/tabY',
 			'dialog/form',
 			'layout/transition',
+			'layout/shade',
 			'layout/view',
 			'layout/routePage',
 			'layout/page',
@@ -33,12 +34,11 @@ class Plugin{
 
 Plugin.prototype.setComponent = function(Vue){
 	this.componentNames.forEach( name=>{
-			let arr = name.split('/');
-			let filename = arr[arr.length-1];
-			let component = 'yu'+filename.replace(filename[0],filename[0].toLocaleUpperCase());
-		
-		Vue.component(component,()=>import('./components/'+name+'.vue'));
-	} );
+		let arr = name.split('/');
+		let filename = arr[arr.length-1];
+		let component = 'yu'+filename.replace(filename[0],filename[0].toLocaleUpperCase());
+		Vue.component(component,resolve => require(['./components/'+name+'.vue'], resolve));
+	});
 }
 
 Plugin.prototype.imageLazyLoad = imageLazyLoad;

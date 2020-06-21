@@ -1,6 +1,6 @@
 {
   "name": "yu-vue-mobile",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "vue移动端组件",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "yu-front": "^1.7.2",
-    "yu-ani": "^1.0.5",
+    "yu-ani": "^1.0.6",
     "yu-util": "^1.2.2"
   },
   "repository": {
