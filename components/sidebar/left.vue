@@ -1,8 +1,8 @@
 <template>
 	<div class="container-left">
-		<transition>
+		<yu-transition name="opacity">
 			<div class="shade" v-show="value" @touchstart="shadeStart"></div>
-		</transition>
+		</yu-transition>
 
 		<div ref="left" class="left" @touchstart="start" @touchend="end" :style="{ width:size+'vw',transform:`translateX(${left}px)` }">
 			<slot></slot>
@@ -104,6 +104,7 @@
 		mounted() {
 			this.element = this.$refs.left;
 			this.width = this.element.offsetWidth;
+			this.ani(this.value);
 		}
 	}
 </script>
@@ -131,16 +132,6 @@
 			top: 0;
 			height: 100vh;
 			background-color: #FFF;
-		}
-
-		.v-enter,
-		.v-leave-to {
-			opacity: 0;
-		}
-
-		.v-enter-active,
-		.v-leave-active {
-			transition: all .5s;
 		}
 	}
 </style>

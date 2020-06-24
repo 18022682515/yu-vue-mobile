@@ -1,23 +1,24 @@
 <template>
 <div class="routePage">
-	<i class="iconfont" @click="$router.go(-1)" @touchstart.stop.prevent="$router.go(-1)">&#xe637;</i>
+	<div v-if="parent"><i class="iconfont" @click="$router.push(parent)" @touchstart.stop.prevent="$router.push(parent)">&#xe637;</i></div>
 	<slot></slot>
-	<yu-view></yu-view>
 </div>
-
 </template>
 
 <script>
 export default {
-    name:'routePage'
+    name:'routePage',
+		props:{
+			parent:{
+				type:[String,Boolean],
+				default:false
+			}
+		}
 }
 </script>
 
 <style scoped lang="less">
 .iconfont{
-	position:absolute;
-	top:0;
-	left:0;
 	padding:0.5vh 0.5vw;
 	color:rgba(0,0,0,0.4);
 }

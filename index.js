@@ -1,6 +1,8 @@
 
 import './index.css';
 import imageLazyLoad from './lib/imageLazyLoad.js'
+import yuTransition from './components/layout/transition.vue'
+import yuCache from './components/layout/cache.vue'
 
 class Plugin{
 	constructor() {
@@ -10,7 +12,6 @@ class Plugin{
 			'tabs/tabX',
 			'tabs/tabY',
 			'dialog/form',
-			'layout/transition',
 			'layout/shade',
 			'layout/view',
 			'layout/routePage',
@@ -33,6 +34,8 @@ class Plugin{
 }
 
 Plugin.prototype.setComponent = function(Vue){
+	Vue.component('yuTransition',yuTransition);
+	Vue.component('yuCache',yuCache);
 	this.componentNames.forEach( name=>{
 		let arr = name.split('/');
 		let filename = arr[arr.length-1];

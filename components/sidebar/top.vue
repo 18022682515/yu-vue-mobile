@@ -1,8 +1,8 @@
 <template>
 	<div class="container-top">
-		<transition>
+		<yu-transition name="opacity">
 			<div class="shade" v-show="value" @touchstart="shadeStart"></div>
-		</transition>
+		</yu-transition>
 		<div ref="top" class="top" @touchstart="start" @touchend="end" :style="{ height:size+'vh',transform:`translateY(${top}px)` }">
 			<slot></slot>
 		</div>
@@ -101,6 +101,7 @@
 		mounted() {
 			this.element = this.$refs.top;
 			this.height = this.element.offsetHeight;
+			this.ani(this.value);
 		}
 	}
 </script>
@@ -128,16 +129,6 @@
 			top: 0;
 			width: 100vw;
 			background-color: #FFF;
-		}
-
-		.v-enter,
-		.v-leave-to {
-			opacity: 0;
-		}
-
-		.v-enter-active,
-		.v-leave-active {
-			transition: all .5s;
 		}
 	}
 </style>

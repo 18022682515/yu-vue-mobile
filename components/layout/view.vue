@@ -1,15 +1,17 @@
 <template>
-	<yu-transition :name="transition">
-		<keep-alive>
-			<router-view class="view" :name="name"></router-view>
-		</keep-alive>
-	</yu-transition>
+	<yu-cache :name="transition">
+		<router-view :class="['view',fill?'fill':'']" :name="name"></router-view>
+	</yu-cache>
 </template>
 
 <script>
 export default {
 	name:'yuView',
 	props:{
+		fill:{
+			type:Boolean,
+			default:true
+		},
 		name:{
 			type:String,
 			default:'default'
@@ -23,14 +25,15 @@ export default {
 </script>
 
 <style scoped lang="less">
-.view{
-	position:absolute;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
-	background-color: #FFF;
-	overflow-x:hidden;
-	overflow-y:auto;
-}
+	.fill{
+		position:absolute;
+		top:0;
+		bottom:0;
+		left:0;
+		right:0;
+	}
+	.view{
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
 </style>

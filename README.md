@@ -66,6 +66,47 @@ name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bott
 show:true|false  //控制div是否显示
 ```
 
+
+### 组件缓存（封装了keep-alive和transition）
+```html
+<yu-cache name="left">
+	<v-test v-if="show"></v-test>
+</yu-cache>
+
+import vTest from './test.vue'
+components:{ vTest },
+show:true|false		//控制vTest组件激活或停用，会触发vTest的勾子函数activated或deactivated
+```
+
+
+
+### 路由页面渲染：router-view
+```html
+<!-- 加了过渡动画的router-view --><!-- 默认绝对定位占满父元素 -->
+<yu-view transition="left"></yu-view>   
+
+transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
+
+<!-- 去掉绝对定位 -->
+<yu-view :fill="false"></yu-view>   
+
+<!-- 如果是命名视图 -->
+<yu-view name="a"></yu-view>
+name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
+```
+
+
+### 路由组件的容器
+```html
+<!-- 带返回图标，点击返回上一级路由 -->
+<yu-route-page parent="/">路由页面内容</yu-route-page>
+parent:'/'     //点击返回图标，即返回到首页
+
+<!-- 不带返回图标 -->
+<yu-route-page>路由页面内容</yu-route-page>
+```
+
+
 ### 遮罩层(透明黑色)
 ```html
 <yu-shade v-model="show"></yu-shade>
@@ -73,33 +114,7 @@ show:true|false  //控制div是否显示
 show:true|false
 ```
 
-### 路由页面渲染(绝对定位占满父元素)：router-view
-```html
-<yu-view transition="left"></yu-view>   <!-- 加了过渡动画的router-view -->
 
-transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
-
-<!-- 如果是命名视图 -->
-<yu-view transition="left" name="a"></yu-view>
-name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
-```
-
-### 路由组件的容器，带返回按钮
-```html
-<yu-route-page>
-	<!-- 路由页面内容 -->
-</yu-route-page>
-```
-
-### 滑出页(全屏)，不用vue-router时使用
-<!-- 带返回键 -->
-```html
-<yu-page name="left" v-model="show">
-		<p v-for="i in 88">{{i}}</p>
-</yu-page>
-name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
-show:true|false,   //本组件是否显示
-```
 
 ### 下拉刷新、上拉加载
 ```html
