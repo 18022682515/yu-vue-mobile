@@ -1,25 +1,27 @@
 <template>
 <div class="routePage">
-	<div v-if="parent"><i class="iconfont" @click="$router.push(parent)" @touchstart.stop.prevent="$router.push(parent)">&#xe637;</i></div>
+	<div v-if="back">
+		<yu-icon icon="icon-fanhui5" @click.native="$router.go(-1)" @touchstart.native.stop.prevent="$router.go(-1)"></yu-icon>
+	</div>
 	<slot></slot>
 </div>
 </template>
 
 <script>
 export default {
-    name:'routePage',
-		props:{
-			parent:{
-				type:[String,Boolean],
-				default:false
-			}
+	name:'routePage',
+	props:{
+		back:{
+			type:Boolean,
+			default:true
 		}
+	}
 }
 </script>
 
 <style scoped lang="less">
-.iconfont{
-	padding:0.5vh 0.5vw;
+.icon{
+	padding:0.2rem;
 	color:rgba(0,0,0,0.4);
 }
 </style>

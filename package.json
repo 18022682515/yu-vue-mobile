@@ -1,6 +1,6 @@
 {
   "name": "yu-vue-mobile",
-  "version": "1.3.9",
+  "version": "1.4.1",
   "description": "vue移动端组件",
   "main": "index.js",
   "scripts": {

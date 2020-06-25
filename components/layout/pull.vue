@@ -2,9 +2,9 @@
 <div class="pull">
 	<div class="pull-box" @touchstart="start" @touchend="end" @touchmove="move" :style="style">
 		<div class="pull-box-icon">
-			<i class="iconfont" v-show="load=='down'">&#xe753;</i>
-			<i class="iconfont" v-show="load==false">&#xe758;</i>
-			<i class="iconfont load" v-show="load===true">&#xe69a;</i>
+			<yu-icon icon="icon-xiajiantou" v-show="load=='down'"></yu-icon>
+			<yu-icon icon="icon-shangjiantou" v-show="load==false"></yu-icon>
+			<yu-icon class="load" icon="icon-jiazai2" v-show="load===true"></yu-icon>
 			<span>{{downText}}</span>
 		</div>
 		<div ref="content" class="pull-box-content" @scroll="scroll">

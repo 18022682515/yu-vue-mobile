@@ -1,12 +1,16 @@
 
 import './index.css';
+import createScript from './lib/createScript.js';
 import imageLazyLoad from './lib/imageLazyLoad.js'
 import yuTransition from './components/layout/transition.vue'
 import yuCache from './components/layout/cache.vue'
 
+
 class Plugin{
-	constructor() {
+	constructor(url) {
+		this.url = url;
 		this.componentNames = [
+			'icon/icon',
 			'slide/slideX',
 			'slide/slideY',
 			'tabs/tabX',
@@ -28,6 +32,7 @@ class Plugin{
 	}
 	
 	install(Vue,options){
+		this.createScript(this.url);
 		this.imageLazyLoad(Vue,options);
 		this.setComponent(Vue);
 	}
@@ -45,5 +50,6 @@ Plugin.prototype.setComponent = function(Vue){
 }
 
 Plugin.prototype.imageLazyLoad = imageLazyLoad;
+Plugin.prototype.createScript = createScript;
 
 export default Plugin;

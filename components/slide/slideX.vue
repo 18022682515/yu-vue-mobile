@@ -6,8 +6,8 @@
 		</li>
 	</ul>
 	<div class="btn">
-		<div class="left iconfont" @click="minus" @touchstart.stop.prevent="minus">&#xe752;</div>
-		<div class="right iconfont" @click="add" @touchstart.stop.prevent="add">&#xe751;</div>
+		<yu-icon class="left" icon="icon-zuojiantou1" @click.native="minus" @touchstart.native.stop.prevent="minus"></yu-icon>
+		<yu-icon class="right" icon="icon-youjiantou1" @click.native="add" @touchstart.native.stop.prevent="add"></yu-icon>
 	</div>
 	<div class="mark">
 		<span v-for="(img,i) in imgs" @mouseover="index=i+1" @touchstart="index=i+1" :class="[ index===i+1?'active':'',index===changeImgs.length-1&&i===0?'active':'',index===0&&i===imgs.length-1?'active':'' ]"></span>

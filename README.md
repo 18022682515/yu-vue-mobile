@@ -14,6 +14,18 @@ import Plugin from 'yu-vue-mobile';
 Vue.use(new Plugin());              //引入
 ```
 
+
+### 引入阿里图标库（支持多色图标）
+```javascript
+/* 在引入本插件时，传阿里图标项目的symbol地址 */
+Vue.use(new Plugin('//at.alicdn.com/t/font_1139100_jyj7qajl4q.js')); 
+
+/* 使用： */
+<yu-icon icon="icon-taobao"></yu-icon>
+/* "icon-taobao" 是某个图标的名称 */
+```
+
+
 ### 图片懒加载：img元素出现在可视区域时才开始加载，兼容ie9
 ```html
 <img v-lazy="src">
@@ -87,23 +99,25 @@ show:true|false		//控制vTest组件激活或停用，会触发vTest的勾子函
 
 transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
 
-<!-- 去掉绝对定位 -->
-<yu-view :fill="false"></yu-view>   
-
 <!-- 如果是命名视图 -->
 <yu-view name="a"></yu-view>
 name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
+
+<!-- 去掉绝对定位 -->
+<yu-view :fill="false"></yu-view>   
+
+<!-- 显示在dom顶层，z-index:1 -->
+<yu-view :top="true"></yu-view>  
 ```
 
 
 ### 路由组件的容器
 ```html
 <!-- 带返回图标，点击返回上一级路由 -->
-<yu-route-page parent="/">路由页面内容</yu-route-page>
-parent:'/'     //点击返回图标，即返回到首页
+<yu-route-page>路由页面内容</yu-route-page>
 
 <!-- 不带返回图标 -->
-<yu-route-page>路由页面内容</yu-route-page>
+<yu-route-page :back="false">路由页面内容</yu-route-page>
 ```
 
 
@@ -206,9 +220,13 @@ height:"100px"||"auto"  //标签内容的高度100px,默认是"auto"
 
 ### 轮播图
 ```html
+<!-- 水平方向 -->
 <yu-slide-x :imgs="imgs" :default="0" width="300px" ></yu-slide-x>
 
 imgs:[ require('./1.jpg'), require('./2.jpg') ],  //轮播图片数组
 default:0,      //0表示默认显示第一张
 width:"300px"   //轮播窗口的宽度
+
+<!-- 垂直方向 -->
+<yu-slide-y :imgs="imgs" :default="0" width="300px" height="300px"></yu-slide-y>
 ```
