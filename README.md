@@ -71,7 +71,7 @@ labels:[],  //有哪些input输入框
 ### vue的过渡动画
 ```html
 <yu-transition name="left">
-	<div v-if="show"></div>
+	<div v-show="show"></div>
 </yu-transition>
 
 name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
@@ -94,7 +94,7 @@ show:true|false		//控制vTest组件激活或停用，会触发vTest的勾子函
 
 ### 路由页面渲染：router-view
 ```html
-<!-- 加了过渡动画的router-view --><!-- 默认绝对定位占满父元素 -->
+<!-- 加了过渡动画的router-view -->
 <yu-view transition="left"></yu-view>   
 
 transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
@@ -103,21 +103,36 @@ transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'to
 <yu-view name="a"></yu-view>
 name:'a',   //{path:"/",components:{ a:a组件 }},渲染a组件
 
-<!-- 去掉绝对定位 -->
-<yu-view :fill="false"></yu-view>   
+<!-- 绝对定位占满父元素 -->
+<yu-view fill></yu-view>   
 
-<!-- 显示在dom顶层，z-index:1 -->
-<yu-view :top="true"></yu-view>  
+<!-- 显示在视图最前面，z-index:1 -->
+<yu-view front></yu-view>
 ```
 
 
 ### 路由组件的容器
 ```html
-<!-- 带返回图标，点击返回上一级路由 -->
-<yu-route-page>路由页面内容</yu-route-page>
+<!-- 本组件对应的路由路径，必写 -->
+<yu-route-page path="/">路由页面内容</yu-route-page>
 
-<!-- 不带返回图标 -->
-<yu-route-page :back="false">路由页面内容</yu-route-page>
+<!-- 有返回图标，点击执行$router.go(-1) -->
+<yu-route-page back>路由页面内容</yu-route-page>
+
+<!-- 子路由组件的过渡动画 -->
+<yu-route-page transition="right">路由页面内容</yu-route-page>
+
+<!-- router-view渲染指定name的子路由组件 -->
+<yu-route-page name="default">路由页面内容</yu-route-page>
+
+<!-- router-view是本组件内的第一个子元素，（没有top则是最后一个子元素） -->
+<yu-route-page top>路由页面内容</yu-route-page>
+
+<!-- 子路由组件置于视觉最前那层，z-index:1 -->
+<yu-route-page front>路由页面内容</yu-route-page>
+
+<!-- 子路由组件全屏显示 -->
+<yu-route-page fill>路由页面内容</yu-route-page>
 ```
 
 

@@ -1,6 +1,6 @@
 <template>
 	<yu-cache :name="transition">
-		<router-view :class="{ view:true,fill,top }" :name="name"></router-view>
+		<router-view :class="{ view:true,fill:fill,front:front }" :name="name"></router-view>
 	</yu-cache>
 </template>
 
@@ -8,13 +8,13 @@
 export default {
 	name:'yuView',
 	props:{
-		top:{
+		front:{
 			type:Boolean,
 			default:false
 		},
 		fill:{
 			type:Boolean,
-			default:true
+			default:false
 		},
 		name:{
 			type:String,
@@ -29,8 +29,9 @@ export default {
 </script>
 
 <style scoped lang="less">
-	.top{
-		z-index:1;
+	.view{
+		overflow-x:hidden;
+		overflow-y:auto;
 	}
 	.fill{
 		position:absolute;
@@ -39,9 +40,8 @@ export default {
 		left:0;
 		right:0;
 	}
-	.view{
-		overflow-x:hidden;
-		overflow-y:auto;
-		background-color: #FFF;
+	.front{
+		z-index:1;
 	}
+	
 </style>
