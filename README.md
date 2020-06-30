@@ -15,6 +15,18 @@ Vue.use(new Plugin());              //引入
 ```
 
 
+### 增加的移动端事件（tag）：手指轻触屏幕触发
+```javascript
+<!-- 原生js绑定事件 -->
+let div = document.querySelector('div');
+div.addEventListener('tag',e=>{});
+div.ontag = function(e){}
+
+<!-- vue绑定事件 -->
+<div @tag="fn"></div>
+```
+
+
 ### 引入阿里图标库（支持多色图标）
 ```javascript
 /* 在引入本插件时，传阿里图标项目的symbol地址 */

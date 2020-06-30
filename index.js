@@ -1,5 +1,6 @@
 
 import './index.css';
+import './lib/tagEvent.js';
 import createScript from './lib/createScript.js';
 import imageLazyLoad from './lib/imageLazyLoad.js'
 import yuTransition from './components/layout/transition.vue'
