@@ -6,11 +6,11 @@
 		</li>
 	</ul>
 	<div class="btn">
-		<yu-icon class="left" icon="icon-zuojiantou1" @click.native="minus" @touchstart.native.stop.prevent="minus"></yu-icon>
-		<yu-icon class="right" icon="icon-youjiantou1" @click.native="add" @touchstart.native.stop.prevent="add"></yu-icon>
+		<yu-icon class="left" icon="icon-zuojiantou1" @tag.native="minus"></yu-icon>
+		<yu-icon class="right" icon="icon-youjiantou1" @tag.native="add"></yu-icon>
 	</div>
 	<div class="mark">
-		<span v-for="(img,i) in imgs" @mouseover="index=i+1" @touchstart="index=i+1" :class="[ index===i+1?'active':'',index===changeImgs.length-1&&i===0?'active':'',index===0&&i===imgs.length-1?'active':'' ]"></span>
+		<span v-for="(img,i) in imgs" @tag="index=i+1" :class="[ index===i+1?'active':'',index===changeImgs.length-1&&i===0?'active':'',index===0&&i===imgs.length-1?'active':'' ]"></span>
 	</div>
 </div>
 </template>

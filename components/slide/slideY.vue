@@ -6,12 +6,12 @@
 		</li>
 	</ul>
 	<div class="btn">
-		<yu-icon class="top" icon="icon-shangjiantou" @click.native="minus" @touchstart.native.stop.prevent="minus"></yu-icon>
+		<yu-icon class="top" icon="icon-shangjiantou" @tag.native="minus"></yu-icon>
 		
 		<div class="mark">
-			<span v-for="(img,i) in imgs" @mouseover="index=i+1" @touchstart="index=i+1" :class="[ index===i+1?'active':'',index===changeImgs.length-1&&i===0?'active':'',index===0&&i===imgs.length-1?'active':'' ]"></span>
+			<span v-for="(img,i) in imgs" @tag="index=i+1" :class="[ index===i+1?'active':'',index===changeImgs.length-1&&i===0?'active':'',index===0&&i===imgs.length-1?'active':'' ]"></span>
 		</div>
-		<yu-icon class="bottom" icon="icon-xiajiantou" @click.native="add" @touchstart.native.stop.prevent="add"></yu-icon>
+		<yu-icon class="bottom" icon="icon-xiajiantou"  @tag.native="add"></yu-icon>
 		
 	</div>
 

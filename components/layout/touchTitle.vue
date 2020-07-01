@@ -1,6 +1,6 @@
 <template>
 <div class="touchTitle">
-    <div ref="title" class="item" v-for="(title,i) in titles" :key="i" @touchstart="$emit('input',i)">{{title}}</div>
+    <div ref="title" class="item" v-for="(title,i) in titles" :key="i" @tag="$emit('input',i)">{{title}}</div>
 		<div class="box" :style="style"></div>
 </div>
 </template>

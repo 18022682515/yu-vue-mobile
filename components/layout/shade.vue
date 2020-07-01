@@ -1,6 +1,6 @@
 <template>
 	<yu-transition name="opacity">
-		<div class="shade" v-show="value" @mousedown="$emit('input',!value)"></div>
+		<div class="shade" v-show="value" @tag="$emit('input',!value)"></div>
 	</yu-transition>
 </template>
 

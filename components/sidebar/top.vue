@@ -1,7 +1,7 @@
 <template>
 	<div class="container-top">
 		<yu-transition name="opacity">
-			<div class="shade" v-show="value" @touchstart="shadeStart"></div>
+			<div class="shade" v-show="value" @tag="shadeStart"></div>
 		</yu-transition>
 		<div ref="top" class="top" @touchstart="start" @touchend="end" :style="{ height:size+'vh',transform:`translateY(${top}px)` }">
 			<slot></slot>
