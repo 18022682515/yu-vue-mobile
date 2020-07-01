@@ -248,12 +248,11 @@ height:"100px"||"auto"  //标签内容的高度100px,默认是"auto"
 ### 轮播图
 ```html
 <!-- 水平方向 -->
-<yu-slide-x :imgs="imgs" :default="0" width="300px" ></yu-slide-x>
+<yu-slide :imgs="imgs" width="300px" ></yu-slide>
 
 imgs:[ require('./1.jpg'), require('./2.jpg') ],  //轮播图片数组
-default:0,      //0表示默认显示第一张
 width:"300px"   //轮播窗口的宽度
 
 <!-- 垂直方向 -->
-<yu-slide-y :imgs="imgs" :default="0" width="300px" height="300px"></yu-slide-y>
+<yu-slide y :imgs="imgs" width="300px"></yu-slide>
 ```

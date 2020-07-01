@@ -12,8 +12,7 @@ class Plugin{
 		this.url = url;
 		this.componentNames = [
 			'icon/icon',
-			'slide/slideX',
-			'slide/slideY',
+			'slide/slide',
 			'tabs/tabX',
 			'tabs/tabY',
 			'dialog/form',
