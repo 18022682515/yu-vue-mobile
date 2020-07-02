@@ -52,33 +52,20 @@ src:require('./xxx.jpg')
 */
 ```
 
-### 表单弹框
+
+
+### 轮播图
 ```html
-<yu-form 
-	v-model="show" 
-	title="用户注册" 
-	:img="require('public/1.jpg')" 
-	:labels="['用户','密码','确认密码','手机','邮箱','验证码']" 
-	@submit="fn">
-</yu-form>
+<!-- 水平方向 -->
+<yu-slide :imgs="imgs" width="300px" ></yu-slide>
 
-show:true|false,  //控制该弹框是否显示
-title:'',   //表单标题
-img:'',     //验证码图片的src
-labels:[],  //有哪些input输入框
+imgs:[ require('./1.jpg'), require('./2.jpg') ],  //轮播图片数组
+width:"300px"   //轮播窗口的宽度
 
-@submit:function(arr){},   //点击表单的提交按钮时触发本事件
-<!-- 事件回调函数的参数arr说明： -->
-<!-- 
-[ 
-	{ allow:true, text:'用户', type:'username', value:'' }, 
-	{ allow:true, text:'密码', type:'password', value:'' },
-	……
-] 
--->
-<!-- allow:false,则对应的input的border变红 -->
-<!-- value:'',是用户在input输入框的输入内容 -->
+<!-- 垂直方向 -->
+<yu-slide y :imgs="imgs" width="300px"></yu-slide>
 ```
+
 
 ### vue的过渡动画
 ```html
@@ -192,6 +179,20 @@ downFn(child){
 show:true  //本组件是否显示
 ```
 
+
+### 滑动切换(同级)路由页面
+```html
+<!-- 水平方向滑动 -->
+<yu-slide-view v-model="name" :paths="paths" ></yu-slide-view>
+
+name:'left-right'   //切换页面的过渡动画
+paths:[ '/a','/b','/c' ]   // 同级的路由路径
+
+<!-- 垂直方向滑动 -->
+<yu-slide-view y v-model="name" :paths="paths" ></yu-slide-view>
+```
+
+
 ### 导航选项
 ```html
 <yu-touch-title :titles="titles" v-model="index"></yu-touch-title>
@@ -245,14 +246,32 @@ default:0,  //默认选中第一项：'标签名0'
 height:"100px"||"auto"  //标签内容的高度100px,默认是"auto"
 ```
 
-### 轮播图
+
+
+### 表单弹框
 ```html
-<!-- 水平方向 -->
-<yu-slide :imgs="imgs" width="300px" ></yu-slide>
+<yu-form 
+	v-model="show" 
+	title="用户注册" 
+	:img="require('public/1.jpg')" 
+	:labels="['用户','密码','确认密码','手机','邮箱','验证码']" 
+	@submit="fn">
+</yu-form>
 
-imgs:[ require('./1.jpg'), require('./2.jpg') ],  //轮播图片数组
-width:"300px"   //轮播窗口的宽度
+show:true|false,  //控制该弹框是否显示
+title:'',   //表单标题
+img:'',     //验证码图片的src
+labels:[],  //有哪些input输入框
 
-<!-- 垂直方向 -->
-<yu-slide y :imgs="imgs" width="300px"></yu-slide>
+@submit:function(arr){},   //点击表单的提交按钮时触发本事件
+<!-- 事件回调函数的参数arr说明： -->
+<!-- 
+[ 
+	{ allow:true, text:'用户', type:'username', value:'' }, 
+	{ allow:true, text:'密码', type:'password', value:'' },
+	……
+] 
+-->
+<!-- allow:false,则对应的input的border变红 -->
+<!-- value:'',是用户在input输入框的输入内容 -->
 ```

@@ -16,6 +16,7 @@ class Plugin{
 			'tabs/tabX',
 			'tabs/tabY',
 			'dialog/form',
+			'layout/slideView',
 			'layout/shade',
 			'layout/view',
 			'layout/routePage',
