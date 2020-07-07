@@ -1,9 +1,9 @@
 <template>
-<div class="touch-title">
+<div class="router-title">
 	<div class="item" :style="style"></div>
 	<ul class="box" :style="{ width }">
-		<li ref="li" v-for="(title,i) in titles" :class="{ active:value===i }" @tap="$emit('input',i)">
-			<p>{{title}}</p>
+		<li ref="li" v-for="(item,i) in titles" :class="{ active:index===i }" @tap="index=i">
+			<router-link tap="p" :to="item.path">{{item.text}}</router-link>
 		</li>
 	</ul>
 	
@@ -13,12 +13,8 @@
 
 <script>
 export default {
-  name: 'touch-title',
+  name: 'router-title',
   props: {
-		value:{
-			type:Number,
-			default:0
-		},
     width: {
       type: String,
       default: '100%'
@@ -28,15 +24,19 @@ export default {
     }
   },
   watch: {
-    value (n, o) {
-      let x = 0
+    index (n, o) {
+      this.x = 0
       this.eles.forEach((ele, i) => {
         if (i === 0 || i > n) return
-        x += this.eles[i - 1].offsetWidth
+        this.x += this.eles[i - 1].offsetWidth
       })
-			this.x = x;
       this.itemWidth = this.eles[n].offsetWidth
-    }
+    },
+		'$route'(n,o){
+			let paths = this.titles.map(item=>item.path);
+			let i = paths.indexOf(n.path);
+			this.index = i===-1? 0: i;
+		}
   },
   computed: {
     style () {
@@ -46,24 +46,25 @@ export default {
   data () {
     return {
       eles: [],
+			index:0,
       itemWidth: 0,
-      x: 0,
-			sum:0
+      x: 0
     }
   },
   mounted () {
     this.eles = this.$refs.li
     this.eles.forEach((ele, i) => {
-		  if (i === 0 || i > this.value) return
+		  if (i === 0 || i > this.index) return
 		  this.x += this.eles[i - 1].offsetWidth
     })
-    this.itemWidth = this.eles[this.value].offsetWidth
+    this.itemWidth = this.eles[this.index].offsetWidth
+    this.$router.push(this.titles[this.index])
   }
 }
 </script>
 
 <style scoped lang="less">
-.touch-title{
+.router-title{
 	position:absolute;
 	background-color: #FFF;
 	width:100%;
@@ -95,5 +96,7 @@ export default {
 			color:#000;
 		}
 	}
+	
+
 }
 </style>

@@ -26,10 +26,6 @@ export default {
     },
     watch:{
 			value(n,o){
-				if(Math.abs(n-o)>1){
-					this.translateX = -this.pageWidth * n;
-					return;
-				}
 				let now = Date.now();
 				let current = Math.round(Math.abs(this.translateX/this.pageWidth))
 				if( now-this.time<300 || n>this.length-1 || n<0 || n==current) return;

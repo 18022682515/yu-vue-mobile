@@ -15,15 +15,15 @@ Vue.use(new Plugin());              //引入
 ```
 
 
-### 增加的移动端事件（tag）：手指轻触屏幕触发
+### 增加的移动端事件（tap）：手指轻触屏幕触发
 ```javascript
 <!-- 原生js绑定事件 -->
 let div = document.querySelector('div');
-div.addEventListener('tag',e=>{});
-div.ontag = function(e){}
+div.addEventListener('tap',e=>{});
+div.ontap = function(e){}
 
 <!-- vue绑定事件 -->
-<div @tag="fn"></div>
+<div @tap="fn"></div>
 ```
 
 
@@ -91,9 +91,9 @@ show:true|false		//控制vTest组件激活或停用，会触发vTest的勾子函
 
 
 
-### 路由页面渲染：router-view
+### 路由页面渲染（加了过渡动画的router-view）
 ```html
-<!-- 加了过渡动画的router-view -->
+<!-- 过渡：left进入和离开 -->
 <yu-view transition="left"></yu-view>   
 
 transition:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //页面进入和离开的过渡动画
@@ -180,26 +180,42 @@ show:true  //本组件是否显示
 ```
 
 
-### 滑动切换(同级)路由页面
+### 路由导航
+```html
+<yu-router-title :titles="titles" width="100%"></yu-router-title>
+
+titles:[
+	{ path:'/a',text:'a' },				//<router-link to="/a">a</router-link>
+	{ path:'/b',text:'b' }
+],
+width:'100%'		//导航的宽度
+```
+
+
+### 路由页面渲染（加了手指滑动事件的router-view）
 ```html
 <!-- 水平方向滑动 -->
-<yu-slide-view v-model="name" :paths="paths" ></yu-slide-view>
+<yu-router-body :titles="titles"></yu-router-body>
 
-name:'left-right'   //切换页面的过渡动画
-paths:[ '/a','/b','/c' ]   // 同级的路由路径
+titles:[
+	{ path:'/a',text:'a' },	
+	{ path:'/b',text:'b' }
+],
 
 <!-- 垂直方向滑动 -->
-<yu-slide-view y v-model="name" :paths="paths" ></yu-slide-view>
+<yu-router-body y :titles="titles"></yu-router-body>
 ```
 
 
-### 导航选项
+### 滑动切换页面的导航
 ```html
-<yu-touch-title :titles="titles" v-model="index"></yu-touch-title>
+<yu-touch-title v-model="index" :titles="titles"></yu-touch-title>
 
-titles:['page0','page1','page2','page3'],
-index:0 当前高亮的选项——titles[0]
+index:0			//当前高亮的导航标题项
+titles:[ 'a','b','c','d' ]			//导航标题
 ```
+
+
 
 ### 横向滑动切换页面
 ```html
@@ -210,8 +226,9 @@ index:0 当前高亮的选项——titles[0]
     <div class="page3">3</div>
 </yu-touch-x>
 
-index:0,  //当前显示页面索引(.page0)
+index:0,  //当前页面的索引(.page0页面)
 ```
+
 
 ### 纵向滑动切换页面
 ```html
@@ -222,7 +239,7 @@ index:0,  //当前显示页面索引(.page0)
     <div class="page3">3</div>
 </yu-touch-y>
 
-index:0,  //当前显示页面索引(.page0)
+index:0,  //当前页面的索引(.page0页面)
 ```
 
 ### 标签页

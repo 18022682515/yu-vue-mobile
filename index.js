@@ -1,6 +1,6 @@
 
 import './index.css';
-import './lib/tagEvent.js';
+import './lib/tapEvent.js';
 import createScript from './lib/createScript.js';
 import imageLazyLoad from './lib/imageLazyLoad.js'
 import yuTransition from './components/layout/transition.vue'
@@ -16,12 +16,13 @@ class Plugin{
 			'tabs/tabX',
 			'tabs/tabY',
 			'dialog/form',
-			'layout/slideView',
 			'layout/shade',
 			'layout/view',
 			'layout/routePage',
 			'layout/page',
 			'layout/pull',
+			'layout/routerTitle',
+			'layout/routerBody',
 			'layout/touchTitle',
 			'layout/touchX',
 			'layout/touchY',

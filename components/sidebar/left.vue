@@ -1,7 +1,7 @@
 <template>
 	<div class="container-left">
 		<yu-transition name="opacity">
-			<div class="shade" v-show="value" @tag="shadeStart"></div>
+			<div class="shade" v-show="value" @tap="shadeStart"></div>
 		</yu-transition>
 
 		<div ref="left" class="left" @touchstart="start" @touchend="end" :style="{ width:size+'vw',transform:`translateX(${left}px)` }">

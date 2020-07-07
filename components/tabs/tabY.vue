@@ -1,7 +1,7 @@
 <template>
 <div class="tabY">
 	<div class="titles">
-		<div ref="title" class="title" v-for="(title,i) in titles" :key="i" @tag="index=i">{{title}}</div>
+		<div ref="title" class="title" v-for="(title,i) in titles" :key="i" @tap="index=i">{{title}}</div>
 		<div class="active" :style="style">{{text}}</div>
 	</div>
 	<div ref="contents" class="contents" :style="{ height }">

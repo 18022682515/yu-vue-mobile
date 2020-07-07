@@ -4,7 +4,7 @@
 		<yu-view :transition="transition" :name="name" :front="front" :fill="fill"></yu-view>
 	</div>
 	<div v-if="back">
-		<yu-icon class="return" icon="icon-fanhui5" @tag.native="$router.go(-1)"></yu-icon>
+		<yu-icon class="return" icon="icon-fanhui5" @tap.native="$router.go(-1)"></yu-icon>
 	</div>
 	<slot></slot>
 	<div v-if="!top" class="view-container" :style="{ top:scrollTop+'px' }">

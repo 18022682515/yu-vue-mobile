@@ -1,5 +1,5 @@
 <template>
-<yu-transition :name="value">
+<yu-transition :name="name">
 	<router-view class="slide-view" @touchstart.native="start" @touchend.native="end"></router-view>
 </yu-transition>
 
@@ -13,19 +13,37 @@ export default {
       type: Boolean,
       default: false
     },
-    value: {
-      type: String,
-      default: 'left-right'
-    },
-    paths: {
+    titles: {
       type: Array
     }
   },
   data () {
-		  return {
-      xy: 0
-		  }
+		return {
+			xy: 0,
+			mark:false,
+			name:'left-right'
+		}
   },
+	watch:{
+		'$route'(n,o){
+			if(this.mark) return
+			let oi = this.paths.indexOf(o.path);
+			let ni = this.paths.indexOf(n.path);
+			if(oi>ni){
+				this.name = this.y ? 'top-bottom' : 'left-right'
+			}else{
+				this.name = this.y ? 'bottom-top' : 'right-left'
+			}
+			
+		}
+	},
+	computed:{
+		paths(){
+			return this.titles.map(item=>{
+				return item.path;
+			})
+		}
+	},
   methods: {
     up () {
 		  let i = this.paths.indexOf(this.$route.path)
@@ -38,6 +56,7 @@ export default {
       this.$router.push(this.paths[i + 1])
     },
     start (e) {
+			this.diff = 0;
       const ele = e.currentTarget
       ele.style.transition = ''
       const touch = e.changedTouches[0]
@@ -53,18 +72,18 @@ export default {
     },
     end (e) {
       const ele = e.currentTarget
-      let value = ''
+			this.mark = true;
       if (this.diff > 100) {
-        value = this.y ? 'top-bottom' : 'left-right'
+        this.name = this.y ? 'top-bottom' : 'left-right'
         this.up()
-      } else if (this.diff < -100) {
-        value = this.y ? 'bottom-top' : 'right-left'
+      } else if (this.diff < -100){
+        this.name = this.y ? 'bottom-top' : 'right-left'
         this.down()
       }
-      this.$emit('input', value)
       ele.style.transition = '.5s'
       setTimeout(() => {
         ele.style.transform = ''
+				this.mark = false;
       }, 0)
       ele.removeEventListener('touchmove', this.move)
     }

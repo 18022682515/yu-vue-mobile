@@ -7,11 +7,11 @@
 			</li>
 		</transition-group>
 		<div class="icon-group">
-			<yu-icon class="left" icon="icon-zuojiantou" @tag.native="minus"></yu-icon>
-			<yu-icon class="right" icon="icon-youjiantou" @tag.native="add"></yu-icon>
+			<yu-icon class="left" icon="icon-zuojiantou" @tap.native="minus"></yu-icon>
+			<yu-icon class="right" icon="icon-youjiantou" @tap.native="add"></yu-icon>
 		</div>
 		<div class="num-group">
-			<p v-for="(img,i) in imgs" :class="{ active:index===i }" @tag="setIndex(i)">{{i+1}}</p>
+			<p v-for="(img,i) in imgs" :class="{ active:index===i }" @tap="setIndex(i)">{{i+1}}</p>
 		</div>
 	</div>
 
