@@ -2,7 +2,7 @@
 	<div class="slide" @touchstart="stop" @touchend="run" :style="{ width }">
 		<transition-group :name="name" tag="ul" class="slide-box">
 			<li :style="{ height }" :key="Math.random()"></li>
-			<li class="item" v-for="(img,i) in imgs" v-show="index===i" :key="i">
+			<li class="item" v-for="(img,i) in imgs" v-show="index===i" :key="Math.random()+i">
 				<img :src="img" alt="" width="100%" @load="load($event,i)">
 			</li>
 		</transition-group>
