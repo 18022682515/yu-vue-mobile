@@ -1,17 +1,17 @@
 <template>
 	<div class="slide" @touchstart="stop" @touchend="run" :style="{ width }">
 		<transition-group :name="name" tag="ul" class="slide-box">
-			<li :style="{ height }" :key="Math.random()"></li>
-			<li class="item" v-for="(img,i) in imgs" v-show="index===i" :key="Math.random()+i">
+			<li :style="{ height }" :key="imgs.length"></li>
+			<li class="item" v-for="(img,i) in imgs" v-show="index===i" :key="''+i">
 				<img :src="img" alt="" width="100%" @load="load($event,i)">
 			</li>
 		</transition-group>
 		<div class="icon-group">
-			<yu-icon class="left" icon="icon-zuojiantou" @tag.native="minus"></yu-icon>
-			<yu-icon class="right" icon="icon-youjiantou" @tag.native="add"></yu-icon>
+			<yu-icon class="left" icon="icon-zuojiantou" @tap.native="minus"></yu-icon>
+			<yu-icon class="right" icon="icon-youjiantou" @tap.native="add"></yu-icon>
 		</div>
 		<div class="num-group">
-			<p v-for="(img,i) in imgs" :class="{ active:index===i }" @tag="setIndex(i)">{{i+1}}</p>
+			<p v-for="(img,i) in imgs" :class="{ active:index===i }" @tap="setIndex(i)">{{i+1}}</p>
 		</div>
 	</div>
 
