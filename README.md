@@ -69,12 +69,12 @@ width:"300px"   //轮播窗口的宽度
 
 ### vue的过渡动画
 ```html
-<yu-transition name="left">
+<yu-transition name="left" :duration="600">
 	<div v-show="show"></div>
 </yu-transition>
 
 name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
-show:true|false  //控制div是否显示
+duration:"600"		//过渡动画持续600毫秒，duration的可选值:'300','600','1000','1500','2000','3000','5000','8000'
 ```
 
 
@@ -91,7 +91,7 @@ show:true|false		//控制vTest组件激活或停用，会触发vTest的勾子函
 
 
 
-### 路由页面渲染（加了过渡动画的router-view）
+### 路由页面渲染（加了过渡动画和keep-alive的router-view）
 ```html
 <!-- 过渡：left进入和离开 -->
 <yu-view transition="left"></yu-view>   
