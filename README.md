@@ -53,6 +53,17 @@ src:require('./xxx.jpg')
 ```
 
 
+### 使用百度echarts
+```html
+<yu-echarts :option="option" @load="load" width="auto" height="300px"></yu-echarts>
+
+option:{},	//echarts的配置对象
+load(chart){},	//当本组件加载完成时触发，chart是echarts的图表实例对象
+width:'auto'|'500px',		//图表宽度
+height:'300px',		//图表高度
+```
+
+
 
 ### 轮播图
 ```html
@@ -74,7 +85,7 @@ width:"300px"   //轮播窗口的宽度
 </yu-transition>
 
 name:'left'|'right'|'left-right'|'right-left'|'opacity'|'top'|'bottom'|'top-bottom'|'bottom-top', //元素进入和离开的过渡动画
-duration:"600"		//过渡动画持续600毫秒，duration的可选值:'300','600','1000','1500','2000','3000','5000','8000'
+duration:600		//过渡动画持续600毫秒，duration的可选值:300,600,1000,1500,2000,3000,5000,8000
 ```
 
 

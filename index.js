@@ -11,6 +11,7 @@ class Plugin{
 	constructor(url) {
 		this.url = url;
 		this.componentNames = [
+			'echarts/echarts',
 			'icon/icon',
 			'slide/slide',
 			'tabs/tabX',
